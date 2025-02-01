@@ -1,9 +1,7 @@
 # Importing flask module in the project is mandatory
 # An object of Flask class is our WSGI application.
-from flask import Flask
-from flask import request
+from flask import Flask, request
 import git
-import requests
 
 # Flask constructor takes the name of 
 # current module (__name__) as argument.
@@ -20,7 +18,7 @@ def hello_world():
 @app.route('/update_server', methods=['POST'])
 def webhook():
     if request.method == 'POST':
-        repo = git.Repo('https://github.com/pekqjq/kvd-scraper.git')
+        repo = git.Repo('/home/patek624/kvd-scraper/')
         origin = repo.remotes.origin
         origin.pull()
         return 'Updated PythonAnywhere successfully', 200
