@@ -14,7 +14,7 @@ app = Flask(__name__)
 @app.route('/')
 # ‘/’ URL is bound with hello_world() function.
 def hello_world():
-    return 'Hello World!!! ._. #web-hook-testing_ver6'
+    return 'Hello World!!! ._. #web-hook-testing_finalized'
 
 @app.route('/update_server', methods=['POST'])
 def webhook():
