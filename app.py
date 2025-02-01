@@ -13,12 +13,12 @@ app = Flask(__name__)
 @app.route('/')
 # ‘/’ URL is bound with hello_world() function.
 def hello_world():
-    return 'Hello World!!! ._. #web-hook-testing_ver2'
+    return 'Hello World!!! ._. #web-hook-testing_ver3'
 
 @app.route('/update_server', methods=['POST'])
 def webhook():
     if request.method == 'POST':
-        repo = git.Repo('/home/patek624/kvd-scraper/')
+        repo = git.Repo('/home/patek624/kvd-scraper')
         origin = repo.remotes.origin
         origin.pull()
         return 'Updated PythonAnywhere successfully', 200
