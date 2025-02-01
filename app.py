@@ -2,6 +2,7 @@
 # An object of Flask class is our WSGI application.
 from flask import Flask, request
 import git
+import os
 
 # Flask constructor takes the name of 
 # current module (__name__) as argument.
@@ -18,7 +19,7 @@ def hello_world():
 @app.route('/update_server', methods=['POST'])
 def webhook():
     if request.method == 'POST':
-        repo = git.Repo('/home/patek624/kvd-scraper')
+        repo = git.Repo(os.getcwd())
         origin = repo.remotes.origin
         print(origin)
         origin.pull()
